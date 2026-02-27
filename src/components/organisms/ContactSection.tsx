@@ -10,11 +10,6 @@ import { Mail, MapPin, Send } from "lucide-react";
 export function ContactSection() {
   const { t } = useLanguage();
 
-  const projectTypeOptions = Object.entries(t.contact.tipoOptions).map(([value, label]) => ({
-    value,
-    label,
-  }));
-
   return (
     <section id="contacto" className="py-12 sm:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,13 +82,6 @@ export function ContactSection() {
                   placeholder={t.contact.placeholderEmail}
                 />
               </div>
-
-              <FormField
-                label={t.contact.tipoProyecto}
-                name="projectType"
-                type="select"
-                options={projectTypeOptions}
-              />
 
               <FormField
                 label={t.contact.mensaje}

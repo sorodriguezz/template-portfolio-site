@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DEV.ARCHITECT | Full Stack Developer & Software Architect",
+  title: "sorodriguezz | Software Engineer",
   description:
-    "Portafolio profesional de un Desarrollador Full Stack y Arquitecto de Software especializado en sistemas distribuidos, microservicios y soluciones cloud-native.",
+    "Portafolio profesional de Sebastián Rodríguez Zapata — Ingeniero de Software orientado a la arquitectura de software, especializado en sistemas distribuidos, microservicios y soluciones cloud-native.",
   keywords: [
-    "Full Stack Developer",
-    "Software Architect",
+    "Software Engineer",
+    "Software Architecture",
     "React",
     "Next.js",
     "Node.js",

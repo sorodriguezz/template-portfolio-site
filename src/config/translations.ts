@@ -9,11 +9,11 @@ export const translations = {
       contratar: "Contrátame",
     },
     hero: {
-      badge: "SISTEMA EN LÍNEA V2.4",
-      title1: "Arquitectando el",
-      title2: "Futuro en Código",
+      badge: "DISPONIBLE PARA TRABAJAR",
+      title1: "Ingeniero de Software",
+      title2: "orientado a Arquitectura",
       description:
-        "Desarrollador Full Stack & Arquitecto de Software especializado en sistemas distribuidos escalables, microservicios cloud-native y soluciones de alto rendimiento.",
+        "Ingeniero de Software orientado a la arquitectura de software, especializado en sistemas distribuidos escalables, microservicios cloud-native y soluciones de alto rendimiento.",
       verProyectos: "Ver Proyectos",
       descargarCV: "Descargar CV",
       expertise: "ESPECIALIDADES",
@@ -21,7 +21,7 @@ export const translations = {
     stats: {
       experiencia: "Años de Experiencia",
       proyectos: "Proyectos Entregados",
-      satisfaccion: "Satisfacción del Cliente",
+      tecnologias: "Tecnologías Dominadas",
       uptime: "Disponibilidad del Sistema",
     },
     projects: {
@@ -62,30 +62,22 @@ export const translations = {
     },
     contact: {
       subtitle: "CONECTEMOS",
-      title: "Construyamos lo extraordinario.",
+      title: "¿Hablamos?",
       description:
-        "¿Listo para llevar tu visión a la realidad? Ya sea una plataforma compleja o un prototipo innovador, estoy listo para arquitectar la solución.",
+        "Si quieres contactarme, no dudes en escribirme. Estoy abierto a nuevas oportunidades, colaboraciones y conversaciones sobre tecnología.",
       nombre: "Nombre",
       email: "Email",
-      tipoProyecto: "Tipo de Proyecto",
       mensaje: "Mensaje",
-      enviar: "Inicializar Transmisión",
+      enviar: "Enviar Mensaje",
       emailLabel: "ESCRÍBEME",
-      ubicacionLabel: "UBICACIÓN BASE",
+      ubicacionLabel: "UBICACIÓN",
       ubicacion: "Santiago, Chile (Remoto Friendly)",
       placeholderNombre: "Tu nombre",
       placeholderEmail: "tu@email.com",
-      placeholderMensaje: "Cuéntame sobre tu proyecto...",
-      tipoOptions: {
-        fullstack: "Desarrollo Full Stack",
-        arquitectura: "Arquitectura de Software",
-        consultoria: "Consultoría Técnica",
-        microservicios: "Microservicios",
-        otro: "Otro",
-      },
+      placeholderMensaje: "Escribe tu mensaje...",
     },
     footer: {
-      derechos: "Dev Architect. Diseñado para el futuro.",
+      derechos: "sorodriguezz. Hecho con código y café.",
     },
   },
   en: {
@@ -98,11 +90,11 @@ export const translations = {
       contratar: "Hire Me",
     },
     hero: {
-      badge: "SYSTEM ONLINE V2.4",
-      title1: "Architecting the",
-      title2: "Future in Code",
+      badge: "AVAILABLE FOR WORK",
+      title1: "Software Engineer",
+      title2: "Architecture Oriented",
       description:
-        "Full Stack Developer & Software Architect specializing in scalable distributed systems, cloud-native microservices, and high-performance solutions.",
+        "Software Engineer focused on software architecture, specializing in scalable distributed systems, cloud-native microservices, and high-performance solutions.",
       verProyectos: "View Projects",
       descargarCV: "Download Resume",
       expertise: "EXPERTISE",
@@ -110,7 +102,7 @@ export const translations = {
     stats: {
       experiencia: "Years of Experience",
       proyectos: "Projects Shipped",
-      satisfaccion: "Client Satisfaction",
+      tecnologias: "Technologies Mastered",
       uptime: "System Uptime",
     },
     projects: {
@@ -151,30 +143,22 @@ export const translations = {
     },
     contact: {
       subtitle: "LET'S CONNECT",
-      title: "Let's build the extraordinary.",
+      title: "Let's talk?",
       description:
-        "Ready to bring your vision to life? Whether it's a complex platform or a cutting-edge prototype, I'm ready to architect the solution.",
+        "If you want to reach out, feel free to write me. I'm open to new opportunities, collaborations, and conversations about technology.",
       nombre: "Name",
       email: "Email",
-      tipoProyecto: "Project Type",
       mensaje: "Message",
-      enviar: "Initialize Transmission",
+      enviar: "Send Message",
       emailLabel: "EMAIL ME",
-      ubicacionLabel: "BASE LOCATION",
+      ubicacionLabel: "LOCATION",
       ubicacion: "Santiago, Chile (Remote Friendly)",
       placeholderNombre: "Your name",
       placeholderEmail: "you@email.com",
-      placeholderMensaje: "Tell me about your project...",
-      tipoOptions: {
-        fullstack: "Full Stack Development",
-        arquitectura: "Software Architecture",
-        consultoria: "Technical Consulting",
-        microservicios: "Microservices",
-        otro: "Other",
-      },
+      placeholderMensaje: "Write your message...",
     },
     footer: {
-      derechos: "Dev Architect. Engineered for the future.",
+      derechos: "sorodriguezz. Built with code and coffee.",
     },
   },
 } as const;

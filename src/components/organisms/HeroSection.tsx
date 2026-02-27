@@ -69,7 +69,12 @@ export function HeroSection() {
               <Button variant="primary" size="lg" href="#proyectos">
                 {t.hero.verProyectos} <ArrowRight size={18} />
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button
+                variant="secondary"
+                size="lg"
+                href="/cv.pdf"
+                download
+              >
                 {t.hero.descargarCV} <Download size={18} />
               </Button>
             </motion.div>
@@ -131,20 +136,20 @@ export function HeroSection() {
                   <div>
                     <span className="text-green-400">→</span>{" "}
                     <span className="text-text-secondary">const</span>{" "}
-                    <span className="text-primary">architect</span>{" "}
+                    <span className="text-primary">engineer</span>{" "}
                     <span className="text-text-secondary">=</span>{" "}
-                    <span className="text-accent">{"{"}</span>
+                    <span className="text-accent">{"{"}                  </span>
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-yellow-400">name</span>
+                    <span className="text-text-secondary">:</span>{" "}
+                    <span className="text-green-400">&quot;Sebastián Rodríguez&quot;</span>
+                    <span className="text-text-secondary">,</span>
                   </div>
                   <div className="pl-4">
                     <span className="text-yellow-400">role</span>
                     <span className="text-text-secondary">:</span>{" "}
-                    <span className="text-green-400">&quot;Full Stack & Architect&quot;</span>
-                    <span className="text-text-secondary">,</span>
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-yellow-400">passion</span>
-                    <span className="text-text-secondary">:</span>{" "}
-                    <span className="text-green-400">&quot;Building the Future&quot;</span>
+                    <span className="text-green-400">&quot;Software Engineer&quot;</span>
                     <span className="text-text-secondary">,</span>
                   </div>
                   <div className="pl-4">
@@ -166,7 +171,7 @@ export function HeroSection() {
                   </div>
                   <div className="mt-3 flex items-center">
                     <span className="text-green-400">→</span>{" "}
-                    <span className="text-text-secondary">architect.</span>
+                    <span className="text-text-secondary">engineer.</span>
                     <span className="text-yellow-400">build</span>
                     <span className="text-text-secondary">(</span>
                     <span className="text-green-400">&quot;future&quot;</span>

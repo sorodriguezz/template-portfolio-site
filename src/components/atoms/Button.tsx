@@ -11,6 +11,7 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   href?: string;
+  download?: boolean;
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
@@ -35,6 +36,7 @@ export function Button({
   variant = "primary",
   size = "md",
   href,
+  download,
   className = "",
   ...props
 }: ButtonProps) {
@@ -51,6 +53,7 @@ export function Button({
         whileTap={{ scale: 0.95 }}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        {...(download ? { download: true } : {})}
       >
         {children}
       </motion.a>

@@ -81,20 +81,60 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-bg-card border-t border-border"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden absolute left-0 right-0 top-16 bg-bg-dark border-t border-border overflow-y-auto"
+            style={{ maxHeight: "calc(100vh - 4rem)" }}
           >
-            <div className="px-4 py-4 space-y-3">
-              {navLinks.map((link) => (
-                <NavLink
+            <div className="flex flex-col px-5 py-6 gap-3">
+              {navLinks.map((link, index) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
-                  label={link.label}
-                  onClick={() => setMobileOpen(false)}
-                />
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25, delay: index * 0.06 }}
+                  onClick={(e) => {
+                    if (link.href.startsWith("#")) {
+                      const target = document.querySelector(link.href);
+                      if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        e.preventDefault();
+                        window.location.href = `/${link.href}`;
+                      }
+                    }
+                    setMobileOpen(false);
+                  }}
+                  className="flex items-center gap-3 py-4 px-5 text-base font-mono text-text-primary bg-bg-card border border-border rounded-xl active:bg-primary/10 active:border-primary/30 transition-all"
+                >
+                  <span className="text-primary text-sm">▸</span>
+                  {link.label}
+                </motion.a>
               ))}
+
+              {/* Divider */}
+              <div className="h-px bg-border my-2" />
+
+              {/* Language toggle */}
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25, delay: navLinks.length * 0.06 }}
+                onClick={() => {
+                  toggleLanguage();
+                  setMobileOpen(false);
+                }}
+                className="flex items-center gap-3 py-4 px-5 text-base font-mono text-text-secondary bg-bg-card border border-border rounded-xl active:bg-primary/10 active:border-primary/30 transition-all cursor-pointer"
+              >
+                <Globe size={18} className="text-primary" />
+                {language === "es" ? "Switch to English" : "Cambiar a Español"}
+              </motion.button>
             </div>
           </motion.div>
         )}
