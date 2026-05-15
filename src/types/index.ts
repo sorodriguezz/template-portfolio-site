@@ -20,7 +20,7 @@ export interface ProjectData {
   architectureDetail: LocalizedString;
   techStack: string[];
   status: ProjectStatus;
-  lastUpdate: LocalizedString;
+  lastUpdate: string;
   image: string;
   description: LocalizedString;
   fullDescription: LocalizedString;

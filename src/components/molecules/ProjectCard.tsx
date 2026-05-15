@@ -5,6 +5,7 @@ import { Badge } from "@/components/atoms";
 import { type ProjectData } from "@/types";
 import { type Language } from "@/config/translations";
 import { Github, ExternalLink, Eye } from "lucide-react";
+import { getRelativeTime } from "@/utils/date";
 import Image from "next/image";
 
 interface ProjectCardProps {
@@ -135,7 +136,7 @@ export function ProjectCard({
         {/* Footer */}
         <div className="flex items-center justify-between pt-3 border-t border-border">
           <span className="text-xs text-text-secondary font-mono">
-            {project.lastUpdate[language]}
+            {getRelativeTime(project.lastUpdate, language)}
           </span>
           <button
             onClick={() => onViewDetails(project)}
