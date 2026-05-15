@@ -48,7 +48,7 @@ export function ProjectCard({
         borderColor: project.color
       }}
       style={{ "--project-color": project.color } as React.CSSProperties}
-      className="group bg-bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 card-shine"
+      className="group bg-bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 card-shine h-full flex flex-col"
     >
       {/* Image Header */}
       <div className="relative h-48 overflow-hidden bg-linear-to-br from-bg-card to-bg-dark">
@@ -121,7 +121,7 @@ export function ProjectCard({
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 flex-1 flex flex-col">
         <div className="flex items-start justify-between mb-3">
           <div>
             <h3 className="text-lg font-bold text-text-primary group-hover:text-(--project-color) transition-colors duration-300">
@@ -139,7 +139,7 @@ export function ProjectCard({
         </p>
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-border">
+        <div className="flex items-center justify-between pt-3 border-t border-border mt-auto">
           <span className="text-xs text-text-secondary font-mono">
             {getRelativeTime(project.lastUpdate, language)}
           </span>
