@@ -113,6 +113,6 @@ export const projectsData: ProjectData[] = [
     githubUrl: "https://github.com/sorodriguezz/dbml-studio",
     demoUrl: "https://sorodriguezz.github.io/dbml-studio/",
     icon: "",
-    color: "##0011CC",
+    color: "#0011CC",
   }
 ];
