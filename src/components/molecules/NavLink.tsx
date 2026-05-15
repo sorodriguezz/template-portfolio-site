@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BASE_PATH } from "@/config/site";
 
 interface NavLinkProps {
   href: string;
@@ -19,7 +20,7 @@ export function NavLink({ href, label, onClick }: NavLinkProps) {
       } else {
         // Navigate to home page with hash
         e.preventDefault();
-        window.location.href = `/${href}`;
+        window.location.href = `${BASE_PATH}/${href}`;
       }
     }
     onClick?.();

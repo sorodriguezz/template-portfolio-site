@@ -1,5 +1,7 @@
 import { type SiteConfig } from "@/types";
 
+export const BASE_PATH = "/portfolio";
+
 export const siteConfig: SiteConfig = {
   name: "sorodriguezz",
   title: "Software Engineer | Software Architecture",

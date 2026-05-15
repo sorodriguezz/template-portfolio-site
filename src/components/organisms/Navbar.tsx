@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { NavLink } from "@/components/molecules";
-import { siteConfig } from "@/config/site";
+import { siteConfig, BASE_PATH } from "@/config/site";
 import { Terminal, Menu, X, Globe } from "lucide-react";
 
 export function Navbar() {
@@ -114,7 +114,7 @@ export function Navbar() {
                         target.scrollIntoView({ behavior: "smooth" });
                       } else {
                         e.preventDefault();
-                        window.location.href = `/${link.href}`;
+                        window.location.href = `${BASE_PATH}/${link.href}`;
                       }
                     }
                     setMobileOpen(false);
