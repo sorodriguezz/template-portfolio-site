@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
@@ -8,18 +8,42 @@ import { SectionTitle } from "@/components/atoms";
 import { ProjectCard } from "@/components/molecules";
 import { projectsData } from "@/config/projects";
 import { type ProjectData } from "@/types";
-import { X, Github, ExternalLink, CheckCircle, AlertTriangle, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import {
+  X,
+  Github,
+  ExternalLink,
+  CheckCircle,
+  AlertTriangle,
+  ArrowRight,
+} from "lucide-react";
 
 interface ProjectsSectionProps {
   limit?: number;
   showViewAll?: boolean;
 }
 
-export function ProjectsSection({ limit, showViewAll = true }: ProjectsSectionProps) {
+export function ProjectsSection({
+  limit,
+  showViewAll = true,
+}: ProjectsSectionProps) {
   const { t, language } = useLanguage();
-  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
+    null,
+  );
 
   const displayedProjects = limit ? projectsData.slice(0, limit) : projectsData;
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject]);
 
   return (
     <section id="proyectos" className="py-12 sm:py-20 relative">
@@ -110,31 +134,49 @@ export function ProjectsSection({ limit, showViewAll = true }: ProjectsSectionPr
 
               {/* Header */}
               <div className="relative h-40 sm:h-56 overflow-hidden rounded-t-2xl">
+                {/* Background color/gradient */}
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: `linear-gradient(135deg, ${selectedProject.color}30, transparent 60%), linear-gradient(225deg, ${selectedProject.color}15, ${selectedProject.color}05)`,
+                    background: `linear-gradient(135deg, ${selectedProject.color}40, transparent 80%), linear-gradient(225deg, ${selectedProject.color}20, ${selectedProject.color}05)`,
                   }}
                 />
+
+                {/* Image or Icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", delay: 0.2 }}
-                    className="text-6xl sm:text-8xl"
-                  >
-                    {selectedProject.icon}
-                  </motion.span>
+                  {selectedProject.image ? (
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.name}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  ) : (
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", delay: 0.2 }}
+                      className="text-6xl sm:text-8xl"
+                    >
+                      {selectedProject.icon}
+                    </motion.span>
+                  )}
                 </div>
-                <div className="absolute bottom-4 left-6">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
+
+                {/* Scrim for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/40 to-transparent" />
+
+                {/* Project Info */}
+                <div className="absolute bottom-4 left-6 z-10 drop-shadow-lg text-white">
+                  <h2 className="text-2xl sm:text-3xl font-bold">
                     {selectedProject.name}
                   </h2>
-                  <div className="flex items-center gap-3 mt-1">
-                    <span className="text-xs font-mono text-text-secondary">
+                  <div className="flex items-center gap-3 mt-1 text-white/90">
+                    <span className="text-xs font-mono bg-bg-dark/50 px-2 py-0.5 rounded backdrop-blur-xs border border-white/10">
                       {selectedProject.version}
                     </span>
-                    <span className="text-xs font-mono text-text-secondary">
+                    <span className="text-xs font-mono font-medium drop-shadow-sm">
                       · {selectedProject.architecture[language]}
                     </span>
                   </div>
@@ -182,18 +224,20 @@ export function ProjectsSection({ limit, showViewAll = true }: ProjectsSectionPr
                     {t.projects.desafios}
                   </h3>
                   <ul className="space-y-2">
-                    {selectedProject.challenges[language].map((challenge, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5 + i * 0.1 }}
-                        className="flex items-start gap-3 text-text-secondary"
-                      >
-                        <span className="text-warning mt-1 text-xs">▸</span>
-                        <span className="text-sm">{challenge}</span>
-                      </motion.li>
-                    ))}
+                    {selectedProject.challenges[language].map(
+                      (challenge, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.5 + i * 0.1 }}
+                          className="flex items-start gap-3 text-text-secondary"
+                        >
+                          <span className="text-warning mt-1 text-xs">▸</span>
+                          <span className="text-sm">{challenge}</span>
+                        </motion.li>
+                      ),
+                    )}
                   </ul>
                 </div>
 

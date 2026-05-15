@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { NavLink } from "@/components/molecules";
@@ -10,6 +10,17 @@ import { Terminal, Menu, X, Globe } from "lucide-react";
 export function Navbar() {
   const { t, language, toggleLanguage } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileOpen]);
 
   const navLinks = [
     { href: "#inicio", label: t.nav.inicio },

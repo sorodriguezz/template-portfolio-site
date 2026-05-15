@@ -64,7 +64,6 @@ export function ProjectCard({
           ) : (
             <span className="text-6xl">{project.icon}</span>
           )}
-          {/* <span className="text-6xl">{project.icon}</span> */}
         </div>
         {/* Status Badge */}
         <div className="absolute top-3 right-3">
