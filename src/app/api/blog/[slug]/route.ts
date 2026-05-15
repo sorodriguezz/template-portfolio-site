@@ -4,6 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { calculateReadTime } from "@/utils/blog";
 
 export async function GET(
   request: Request,
@@ -31,7 +32,7 @@ export async function GET(
     date: data.date || "",
     excerpt: data.excerpt || "",
     tags: data.tags || [],
-    readTime: data.readTime || 5,
+    readTime: calculateReadTime(content),
     image: data.image || null,
     content: contentHtml,
     language: lang,

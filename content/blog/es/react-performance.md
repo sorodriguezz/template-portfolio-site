@@ -3,7 +3,6 @@ title: "Optimización de Rendimiento en React: Técnicas Avanzadas"
 date: "2026-02-10"
 excerpt: "Descubre técnicas avanzadas para optimizar el rendimiento de tus aplicaciones React en producción."
 tags: ["React", "Performance", "Frontend", "Optimización"]
-readTime: 8
 ---
 
 # Optimización de Rendimiento en React

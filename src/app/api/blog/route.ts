@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { calculateReadTime } from "@/utils/blog";
 
 function getBlogDir(lang: string) {
   return path.join(process.cwd(), "content", "blog", lang);
@@ -22,7 +23,7 @@ export async function GET(request: Request) {
   const posts = files.map((filename) => {
     const filePath = path.join(blogDir, filename);
     const fileContent = fs.readFileSync(filePath, "utf-8");
-    const { data } = matter(fileContent);
+    const { data, content } = matter(fileContent);
 
     return {
       slug: filename.replace(".md", ""),
@@ -30,7 +31,7 @@ export async function GET(request: Request) {
       date: data.date || "",
       excerpt: data.excerpt || "",
       tags: data.tags || [],
-      readTime: data.readTime || 5,
+      readTime: calculateReadTime(content),
       image: data.image || null,
       language: lang,
     };

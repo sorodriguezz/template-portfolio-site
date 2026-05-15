@@ -3,7 +3,6 @@ title: "Clean Architecture en TypeScript: Principios y Práctica"
 date: "2026-02-15"
 excerpt: "Aprende a implementar Clean Architecture en proyectos TypeScript para crear código mantenible, testeable y escalable."
 tags: ["Clean Architecture", "TypeScript", "SOLID", "Design Patterns"]
-readTime: 10
 ---
 
 # Clean Architecture en TypeScript

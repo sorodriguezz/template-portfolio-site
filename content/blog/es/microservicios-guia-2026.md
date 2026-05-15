@@ -3,7 +3,6 @@ title: "Arquitectura de Microservicios: Guía Completa para 2026"
 date: "2026-02-20"
 excerpt: "Una guía exhaustiva sobre cómo diseñar, implementar y gestionar arquitecturas de microservicios escalables en producción."
 tags: ["Microservicios", "Arquitectura", "Cloud Native", "Docker"]
-readTime: 12
 ---
 
 # Arquitectura de Microservicios: Guía Completa para 2026
