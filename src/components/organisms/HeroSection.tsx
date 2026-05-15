@@ -16,7 +16,7 @@ export function HeroSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section id="inicio" className="snap-section relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-primary/5 rounded-full blur-3xl" />

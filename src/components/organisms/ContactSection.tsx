@@ -107,7 +107,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="py-12 sm:py-20 relative">
+    <section className="py-12 sm:py-20 relative">
       <Toast
         isVisible={toast.isVisible}
         message={toast.message}

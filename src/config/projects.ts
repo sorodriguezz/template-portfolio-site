@@ -115,4 +115,61 @@ export const projectsData: ProjectData[] = [
     icon: "",
     color: "#5061E5",
   },
+  {
+    "id": "sys-architect",
+    "name": "Sys Architect",
+    "version": "v1.0.0",
+    "architecture": {
+      "es": "Herramienta de diseño de arquitectura de software",
+      "en": "Software architecture design tool"
+    },
+    "architectureDetail": {
+      "es": "Aplicación web para diseñar y visualizar la arquitectura de software de proyectos. Permite a los usuarios crear diagramas de componentes, definir relaciones entre ellos y generar documentación técnica basada en el diseño arquitectónico.",
+      "en": "Web application for designing and visualizing software architecture of projects. It allows users to create component diagrams, define relationships between them, and generate technical documentation based on the architectural design."
+    },
+    techStack: ["React", "NextJS", "TypeScript", "Node.js"],
+    status: "deployed",
+    lastUpdate: "2026-04-08T23:00:00-04:00",
+    image: "/portfolio/projects/sys-architect.png",
+    description: {
+      "es": "Sys Architect es una herramienta de diseño de arquitectura de software que permite a los desarrolladores y arquitectos de software crear y visualizar la estructura de sus proyectos. Con una interfaz intuitiva, los usuarios pueden diseñar diagramas de componentes, definir las relaciones entre ellos y generar documentación técnica basada en el diseño arquitectónico. Esta aplicación es ideal para equipos de desarrollo que buscan mejorar la comunicación y la colaboración al proporcionar una representación visual clara de la arquitectura del software.",
+      "en": "Sys Architect is a software architecture design tool that allows developers and software architects to create and visualize the structure of their projects. With an intuitive interface, users can design component diagrams, define relationships between them, and generate technical documentation based on the architectural design. This application is ideal for development teams looking to improve communication and collaboration by providing a clear visual representation of the software architecture."
+    },
+    fullDescription: {
+      "es": "Sys Architect es una aplicación web diseñada para ayudar a los desarrolladores y arquitectos de software a crear y visualizar la arquitectura de sus proyectos. La herramienta ofrece una interfaz gráfica fácil de usar que permite a los usuarios diseñar diagramas de componentes, definir las relaciones entre ellos y generar documentación técnica basada en el diseño arquitectónico. Con Sys Architect, los equipos de desarrollo pueden mejorar la comunicación y la colaboración al proporcionar una representación visual clara de la arquitectura del software, lo que facilita la toma de decisiones y la planificación del desarrollo.",
+      "en": "Sys Architect is a web application designed to help developers and software architects create and visualize the architecture of their projects. The tool offers an easy-to-use graphical interface that allows users to design component diagrams, define relationships between them, and generate technical documentation based on the architectural design. With Sys Architect, development teams can improve communication and collaboration by providing a clear visual representation of the software architecture, facilitating decision-making and development planning."
+    },
+    features: {
+      "es": [
+        "Interfaz gráfica intuitiva para diseñar la arquitectura de software",
+        "Soporte para diagramas de componentes y relaciones",
+        "Generación de documentación técnica basada en el diseño arquitectónico",
+        "Colaboración en tiempo real para equipos de desarrollo",
+        "Documentación y ejemplos para facilitar el uso"
+      ],
+      "en": [
+        "Intuitive graphical interface for designing software architecture",
+        "Support for component diagrams and relationships",
+        "Generation of technical documentation based on architectural design",
+        "Real-time collaboration for development teams",
+        "Documentation and examples to facilitate use"
+      ]
+    },
+    challenges: {
+      "es": [
+        "Optimización del rendimiento para manejar diagramas complejos",
+        "Implementación de una interfaz de usuario intuitiva y fácil de usar",
+        "Garantizar la compatibilidad con diferentes estilos de diseño arquitectónico"
+      ],
+      "en": [
+        "Performance optimization to handle complex diagrams",
+        "Implementation of an intuitive and user-friendly interface",
+        "Ensuring compatibility with different architectural design styles"
+      ]
+    },
+    githubUrl: "https://github.com/sorodriguezz/system-architect",
+    demoUrl: "https://sorodriguezz.github.io/system-architect/",
+    icon: "",
+    color: "#E94E77"
+  },
 ];

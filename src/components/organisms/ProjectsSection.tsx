@@ -21,11 +21,13 @@ import {
 interface ProjectsSectionProps {
   limit?: number;
   showViewAll?: boolean;
+  centered?: boolean;
 }
 
 export function ProjectsSection({
   limit,
   showViewAll = true,
+  centered = false,
 }: ProjectsSectionProps) {
   const { t, language } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
@@ -46,7 +48,14 @@ export function ProjectsSection({
   }, [selectedProject]);
 
   return (
-    <section id="proyectos" className="py-12 sm:py-20 relative">
+    <section
+      id="proyectos"
+      className={
+        centered
+          ? "snap-section min-h-screen flex flex-col pt-[12vh] pb-[4vh] relative"
+          : "py-12 sm:py-20 relative"
+      }
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle subtitle={t.projects.subtitle} title={t.projects.title} />
 

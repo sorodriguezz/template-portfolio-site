@@ -17,8 +17,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.snap-container {
+  scroll-snap-type: y mandatory;
+}
+
 * {
   scroll-behavior: smooth;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 body {

@@ -12,10 +12,11 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 interface BlogSectionProps {
   limit?: number;
   showViewAll?: boolean;
+  centered?: boolean;
   initialPosts: BlogPost[];
 }
 
-export function BlogSection({ limit, showViewAll = true, initialPosts }: BlogSectionProps) {
+export function BlogSection({ limit, showViewAll = true, centered = false, initialPosts }: BlogSectionProps) {
   const { t, language } = useLanguage();
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
@@ -25,12 +26,19 @@ export function BlogSection({ limit, showViewAll = true, initialPosts }: BlogSec
     const post = posts.find((p) => p.slug === slug);
     if (post) {
       setSelectedPost(post);
-      window.scrollTo({ top: document.getElementById("blog")?.offsetTop || 0, behavior: "smooth" });
+      document.getElementById("blog")?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="blog" className="py-12 sm:py-20 relative">
+    <section
+      id="blog"
+      className={
+        centered
+          ? "snap-section min-h-screen flex flex-col pt-[12vh] pb-[4vh] relative"
+          : "py-12 sm:py-20 relative"
+      }
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatePresence mode="wait">
           {selectedPost ? (
