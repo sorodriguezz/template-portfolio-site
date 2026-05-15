@@ -116,14 +116,14 @@ export const projectsData: ProjectData[] = [
     color: "#5061E5",
   },
   {
-    "id": "sys-architect",
-    "name": "Sys Architect",
-    "version": "v1.0.0",
-    "architecture": {
+    id: "sys-architect",
+    name: "Sys Architect",
+    version: "v1.0.0",
+    architecture: {
       "es": "Herramienta de diseño de arquitectura de software",
       "en": "Software architecture design tool"
     },
-    "architectureDetail": {
+    architectureDetail: {
       "es": "Aplicación web para diseñar y visualizar la arquitectura de software de proyectos. Permite a los usuarios crear diagramas de componentes, definir relaciones entre ellos y generar documentación técnica basada en el diseño arquitectónico.",
       "en": "Web application for designing and visualizing software architecture of projects. It allows users to create component diagrams, define relationships between them, and generate technical documentation based on the architectural design."
     },
@@ -145,7 +145,7 @@ export const projectsData: ProjectData[] = [
         "Soporte para diagramas de componentes y relaciones",
         "Generación de documentación técnica basada en el diseño arquitectónico",
         "Colaboración en tiempo real para equipos de desarrollo",
-        "Documentación y ejemplos para facilitar el uso"
+        "ocumentación y ejemplos para facilitar el uso"
       ],
       "en": [
         "Intuitive graphical interface for designing software architecture",
@@ -172,4 +172,57 @@ export const projectsData: ProjectData[] = [
     icon: "",
     color: "#E94E77"
   },
+  {
+    id: "mcp-achs-dev",
+    name: "MCP ACHS Dev",
+    version: "v2.0.0",
+    architecture: {
+      "es": "Model Context Protocol para gestión de proyectos de desarrollo",
+      "en": "Model Context Protocol for development project management"
+    },
+    architectureDetail: {
+      "es": "MCP ACHS Dev es una herramienta que permite dar funcionalidades extras a un LLM, por ejemplo tener Tools para realizar Queries a bases de datos, consultas a Azure Devops, Azure Wiki, etc.",
+      "en": "MCP ACHS Dev is a tool that allows adding extra functionalities to an LLM, for example having Tools to perform Queries to databases, Azure Devops queries, Azure Wiki, etc."
+    },
+    techStack: ["NestJS", "TypeScript", "Node.js", "MCP"],
+    status: "deployed",
+    lastUpdate: "2026-04-01T16:25:00-04:00",
+    image: "/portfolio/projects/mcp-achs-dev.png",
+    description: {
+      "es": "MCP ACHS Dev es una aplicación diseñada para ayudar a los equipos de desarrollo a gestionar sus proyectos de manera más eficiente utilizando el protocolo Model Context Protocol (MCP). La herramienta permite a los usuarios definir modelos de contexto para sus proyectos, lo que facilita la comunicación y colaboración entre los miembros del equipo. Con MCP ACHS Dev, los equipos pueden compartir información relevante sobre el proyecto, coordinar tareas y mantener un seguimiento claro del progreso, lo que mejora la productividad y la gestión de proyectos complejos.",
+      "en": "MCP ACHS Dev is an application designed to help development teams manage their projects more efficiently using the Model Context Protocol (MCP). The tool allows users to define context models for their projects, facilitating communication and collaboration among team members. With MCP ACHS Dev, teams can share relevant information about the project, coordinate tasks, and maintain clear tracking of progress, improving productivity and management of complex projects."
+    },
+    fullDescription: {
+      "es": "MCP ACHS Dev es una aplicación innovadora que utiliza el protocolo Model Context Protocol (MCP) para mejorar la gestión de proyectos de desarrollo. La herramienta permite a los equipos definir modelos de contexto que encapsulan información relevante sobre el proyecto, como objetivos, tareas, recursos y plazos. Esto facilita la comunicación entre los miembros del equipo, ya que todos tienen acceso a la misma información actualizada. Además, MCP ACHS Dev ofrece funcionalidades adicionales, como la integración con herramientas de gestión de proyectos populares y la capacidad de realizar consultas a bases de datos y servicios externos, lo que mejora aún más la eficiencia y la colaboración en proyectos complejos.",
+      "en": "MCP ACHS Dev is an innovative application that utilizes the Model Context Protocol (MCP) to enhance development project management. The tool allows teams to define context models that encapsulate relevant information about the project, such as objectives, tasks, resources, and deadlines. This facilitates communication among team members, as everyone has access to the same updated information. Additionally, MCP ACHS Dev offers additional functionalities, such as integration with popular project management tools and the ability to perform queries to databases and external services, further improving efficiency and collaboration in complex projects."
+    },
+    features: {
+      "es": [
+        "Conexión con InterSystems IRIS para gestión de datos en tiempo real",
+        "Proxy de Azure DevOps, donde se agregan funcionalizades a Azure Repos, Azure Wiki, Azure Pipelines y Azure Boards",
+        "Conexión a base de datos SQL Server para realizar queries a la base de datos"
+      ],
+      "en": [
+        "Connection with InterSystems IRIS for real-time data management",
+        "Azure DevOps proxy, where functionalities are added to Azure Repos, Azure Wiki, Azure Pipelines, and Azure Boards",
+        "Connection to SQL Server database to perform queries to the database"
+      ],
+    },
+    challenges: {
+      "es": [
+        "Integración de múltiples herramientas y servicios para proporcionar una experiencia unificada",
+        "Optimización del rendimiento para manejar grandes volúmenes de datos y consultas complejas",
+        "Garantizar la seguridad y privacidad de los datos compartidos a través de la plataforma"
+      ],
+      "en": [
+        "Integration of multiple tools and services to provide a unified experience",
+        "Performance optimization to handle large volumes of data and complex queries",
+        "Ensuring security and privacy of data shared through the platform"
+      ],
+    },
+    githubUrl: "https://github.com/sorodriguezz/fc-devs-mcp",
+    demoUrl: "https://www.npmjs.com/package/fc-devs-mcp",
+    icon: "",
+    color: "#BA3636"
+  }
 ];
