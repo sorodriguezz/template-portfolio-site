@@ -91,7 +91,7 @@ export function ProjectCard({
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => onViewDetails(project)}
-            className="bg-[var(--project-color)] text-bg-dark p-3 rounded-full cursor-pointer shadow-[0_0_15px_var(--project-color)]"
+            className="bg-(--project-color) text-bg-dark p-3 rounded-full cursor-pointer shadow-[0_0_15px_var(--project-color)]"
           >
             <Eye size={20} />
           </motion.button>
@@ -101,7 +101,7 @@ export function ProjectCard({
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="bg-white/10 text-white p-3 rounded-full border border-white/20 hover:border-[var(--project-color)] hover:text-[var(--project-color)] transition-colors"
+            className="bg-white/10 text-white p-3 rounded-full border border-white/20 hover:border-(--project-color) hover:text-(--project-color) transition-colors"
           >
             <Github size={20} />
           </motion.a>
@@ -112,7 +112,7 @@ export function ProjectCard({
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="bg-white/10 text-white p-3 rounded-full border border-white/20 hover:border-[var(--project-color)] hover:text-[var(--project-color)] transition-colors"
+              className="bg-white/10 text-white p-3 rounded-full border border-white/20 hover:border-(--project-color) hover:text-(--project-color) transition-colors"
             >
               <ExternalLink size={20} />
             </motion.a>
@@ -124,7 +124,7 @@ export function ProjectCard({
       <div className="p-5">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="text-lg font-bold text-text-primary group-hover:text-[var(--project-color)] transition-colors duration-300">
+            <h3 className="text-lg font-bold text-text-primary group-hover:text-(--project-color) transition-colors duration-300">
               {project.name}
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-0.5">
@@ -145,7 +145,7 @@ export function ProjectCard({
           </span>
           <button
             onClick={() => onViewDetails(project)}
-            className="text-xs font-mono text-[var(--project-color)] hover:opacity-80 transition-opacity cursor-pointer flex items-center gap-1 font-bold"
+            className="text-xs font-mono text-(--project-color) hover:opacity-80 transition-opacity cursor-pointer flex items-center gap-1 font-bold"
           >
             {labels.verDetalles} →
           </button>
