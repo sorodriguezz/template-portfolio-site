@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar, ProjectsSection, Footer } from "@/components/organisms";
 
 export default function ProjectsPage() {

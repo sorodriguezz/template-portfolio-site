@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Navbar,
   HeroSection,
@@ -9,8 +7,16 @@ import {
   ContactSection,
   Footer,
 } from "@/components/organisms";
+import { type BlogPost } from "@/types";
 
-export function HomeTemplate() {
+interface HomeTemplateProps {
+  initialPosts: {
+    es: BlogPost[];
+    en: BlogPost[];
+  };
+}
+
+export function HomeTemplate({ initialPosts }: HomeTemplateProps) {
   return (
     <>
       <Navbar />
@@ -18,7 +24,7 @@ export function HomeTemplate() {
         <HeroSection />
         <StatsSection />
         <ProjectsSection limit={3} />
-        <BlogSection limit={3} />
+        <BlogSection limit={3} initialPosts={initialPosts} />
         <ContactSection />
       </main>
       <Footer />

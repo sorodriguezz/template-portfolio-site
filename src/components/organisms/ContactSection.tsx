@@ -3,12 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { SectionTitle, Button } from "@/components/atoms";
+import { SectionTitle, Button, Toast, type ToastType } from "@/components/atoms";
 import { FormField } from "@/components/molecules";
 import { siteConfig } from "@/config/site";
 import { Mail, MapPin, Send, Loader2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
 
 export function ContactSection() {
   const { t, language } = useLanguage();
@@ -18,6 +17,20 @@ export function ContactSection() {
     email: "",
     message: "",
   });
+
+  const [toast, setToast] = useState<{
+    isVisible: boolean;
+    message: string;
+    type: ToastType;
+  }>({
+    isVisible: false,
+    message: "",
+    type: "success",
+  });
+
+  const showToast = (message: string, type: ToastType) => {
+    setToast({ isVisible: true, message, type });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -31,16 +44,29 @@ export function ContactSection() {
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Rate Limit Check
+    const lastSent = localStorage.getItem("last_email_sent");
+    const now = Date.now();
+    const COOLDOWN = 60000; // 60 seconds
+
+    if (lastSent && now - parseInt(lastSent) < COOLDOWN) {
+      const remaining = Math.ceil((COOLDOWN - (now - parseInt(lastSent))) / 1000);
+      showToast(
+        language === "es"
+          ? `Por favor espera ${remaining}s antes de enviar otro mensaje.`
+          : `Please wait ${remaining}s before sending another message.`,
+        "warning"
+      );
+      return;
+    }
+
     if (!formData.name || !formData.email || !formData.message) {
-      Swal.fire({
-        icon: "warning",
-        title: language === "es" ? "Campos incompletos" : "Incomplete fields",
-        text:
-          language === "es"
-            ? "Por favor rellena todos los campos."
-            : "Please fill in all fields.",
-        confirmButtonColor: "#00e5ff",
-      });
+      showToast(
+        language === "es"
+          ? "Por favor rellena todos los campos."
+          : "Please fill in all fields.",
+        "warning"
+      );
       return;
     }
 
@@ -62,28 +88,19 @@ export function ContactSection() {
       );
 
       if (response.status === 200) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: language === "es" ? "¡Email enviado!" : "Email sent!",
-          showConfirmButton: false,
-          timer: 1500,
-          background: "#0a0a0b",
-          color: "#fff",
-        });
+        localStorage.setItem("last_email_sent", Date.now().toString());
+        showToast(
+          language === "es" ? "¡Email enviado con éxito!" : "Email sent successfully!",
+          "success"
+        );
         setFormData({ name: "", email: "", message: "" });
       }
     } catch (error) {
       console.error("EmailJS Error:", error);
-      Swal.fire({
-        position: "top-end",
-        icon: "error",
-        title: language === "es" ? "Error al enviar" : "Send error",
-        showConfirmButton: false,
-        timer: 1500,
-        background: "#0a0a0b",
-        color: "#fff",
-      });
+      showToast(
+        language === "es" ? "Error al enviar el mensaje" : "Error sending message",
+        "error"
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -91,6 +108,12 @@ export function ContactSection() {
 
   return (
     <section id="contacto" className="py-12 sm:py-20 relative">
+      <Toast
+        isVisible={toast.isVisible}
+        message={toast.message}
+        type={toast.type}
+        onClose={() => setToast((prev) => ({ ...prev, isVisible: false }))}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle subtitle={t.contact.subtitle} title={t.contact.title} />
 

@@ -4,3 +4,5 @@ export { SectionTitle } from "./SectionTitle";
 export { GlowCard } from "./GlowCard";
 export { AnimatedCounter } from "./AnimatedCounter";
 export { ProgressBar } from "./ProgressBar";
+export { Toast } from "./Toast";
+export type { ToastType } from "./Toast";

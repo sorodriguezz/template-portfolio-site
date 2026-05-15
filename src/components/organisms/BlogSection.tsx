@@ -12,39 +12,23 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 interface BlogSectionProps {
   limit?: number;
   showViewAll?: boolean;
+  initialPosts: {
+    es: BlogPost[];
+    en: BlogPost[];
+  };
 }
 
-export function BlogSection({ limit, showViewAll = true }: BlogSectionProps) {
+export function BlogSection({ limit, showViewAll = true, initialPosts }: BlogSectionProps) {
   const { t, language } = useLanguage();
-  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    async function fetchPosts() {
-      try {
-        const res = await fetch(`/api/blog?lang=${language}`);
-        if (res.ok && !cancelled) {
-          const data = await res.json();
-          setPosts(data);
-        }
-      } catch {
-        // silently fail
-      }
-    }
-    fetchPosts();
-    return () => { cancelled = true; };
-  }, [language]);
+  const posts = initialPosts[language] || [];
 
-  const handleReadMore = async (slug: string) => {
-    try {
-      const res = await fetch(`/api/blog/${slug}?lang=${language}`);
-      if (res.ok) {
-        const post = await res.json();
-        setSelectedPost(post);
-      }
-    } catch {
-      console.error("Error loading post");
+  const handleReadMore = (slug: string) => {
+    const post = posts.find((p) => p.slug === slug);
+    if (post) {
+      setSelectedPost(post);
+      window.scrollTo({ top: document.getElementById("blog")?.offsetTop || 0, behavior: "smooth" });
     }
   };
 
