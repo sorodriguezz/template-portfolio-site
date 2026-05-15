@@ -56,6 +56,6 @@ export const projectsData: ProjectData[] = [
     githubUrl: "https://github.com/sorodriguezz/achs-nest-cli",
     demoUrl: "https://www.npmjs.com/package/achs-nest-cli",
     icon: "",
-    color: "#01F000",
+    color: "#28B827",
   },
 ];

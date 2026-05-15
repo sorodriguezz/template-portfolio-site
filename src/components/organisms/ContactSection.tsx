@@ -1,14 +1,93 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { SectionTitle, Button } from "@/components/atoms";
 import { FormField } from "@/components/molecules";
 import { siteConfig } from "@/config/site";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 export function ContactSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const sendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      Swal.fire({
+        icon: "warning",
+        title: language === "es" ? "Campos incompletos" : "Incomplete fields",
+        text:
+          language === "es"
+            ? "Por favor rellena todos los campos."
+            : "Please fill in all fields.",
+        confirmButtonColor: "#00e5ff",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const templateParams = {
+      from_name: formData.name,
+      to_name: process.env.NEXT_PUBLIC_EMAILJS_TO_NAME,
+      message: formData.message,
+      reply_to: formData.email,
+    };
+
+    try {
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      if (response.status === 200) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: language === "es" ? "¡Email enviado!" : "Email sent!",
+          showConfirmButton: false,
+          timer: 1500,
+          background: "#0a0a0b",
+          color: "#fff",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: language === "es" ? "Error al enviar" : "Send error",
+        showConfirmButton: false,
+        timer: 1500,
+        background: "#0a0a0b",
+        color: "#fff",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contacto" className="py-12 sm:py-20 relative">
@@ -66,20 +145,24 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-bg-card border border-border rounded-xl p-4 sm:p-6"
+            className="bg-bg-card border border-border rounded-xl p-4 sm:p-6 shadow-[0_0_50px_rgba(0,0,0,0.2)]"
           >
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-2">
+            <form onSubmit={sendEmail} className="space-y-2">
               <div className="grid sm:grid-cols-2 gap-4">
                 <FormField
                   label={t.contact.nombre}
                   name="name"
                   placeholder={t.contact.placeholderNombre}
+                  value={formData.name}
+                  onChange={handleChange}
                 />
                 <FormField
                   label={t.contact.email}
                   name="email"
                   type="email"
                   placeholder={t.contact.placeholderEmail}
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -88,10 +171,26 @@ export function ContactSection() {
                 name="message"
                 type="textarea"
                 placeholder={t.contact.placeholderMensaje}
+                value={formData.message}
+                onChange={handleChange}
               />
 
-              <Button variant="primary" size="lg" className="w-full justify-center mt-4">
-                {t.contact.enviar} <Send size={16} />
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full justify-center mt-4"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin" size={16} />
+                    {language === "es" ? "Enviando..." : "Sending..."}
+                  </>
+                ) : (
+                  <>
+                    {t.contact.enviar} <Send size={16} />
+                  </>
+                )}
               </Button>
             </form>
           </motion.div>
@@ -100,3 +199,4 @@ export function ContactSection() {
     </section>
   );
 }
+
