@@ -1,6 +1,5 @@
 export function getRelativeTime(dateString: string, lang: 'es' | 'en'): string {
   const now = new Date();
-  console.log(now);
   const date = new Date(dateString);
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
