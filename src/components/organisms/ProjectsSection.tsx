@@ -165,7 +165,7 @@ export function ProjectsSection({
                 </div>
 
                 {/* Scrim for readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-bg-dark via-bg-dark/40 to-transparent" />
 
                 {/* Project Info */}
                 <div className="absolute bottom-4 left-6 z-10 drop-shadow-lg text-white">
