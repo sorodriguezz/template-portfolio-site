@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   email: "s.rodriguezzapata01@gmail.com",
   github: "https://github.com/sorodriguezz",
   linkedin: "https://linkedin.com/in/sorodriguezz",
-  twitter: "https://twitter.com/sorodriguezz",
+  twitter: "https://x.com/s_o_rodriguez_z",
 };
 
 export const statsData = [

@@ -153,28 +153,6 @@ export function ProjectsSection({ limit, showViewAll = true }: ProjectsSectionPr
                   </p>
                 </div>
 
-                {/* Tech Stack */}
-                <div>
-                  <h3 className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
-                    {t.projects.tecnologias}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1.5 rounded-lg text-sm font-mono border"
-                        style={{
-                          borderColor: `${selectedProject.color}40`,
-                          backgroundColor: `${selectedProject.color}10`,
-                          color: selectedProject.color,
-                        }}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Features */}
                 <div>
                   <h3 className="text-sm font-mono text-primary uppercase tracking-widest mb-3 flex items-center gap-2">

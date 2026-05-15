@@ -19,7 +19,7 @@ export const projectsData: ProjectData[] = [
       es: "Hace 2 horas",
       en: "2 hours ago",
     },
-    image: "/projects/neural-ledger.jpg",
+    image: "",
     description: {
       es: "Plataforma de registro distribuido con pruebas de conocimiento cero para transacciones seguras y escalables en blockchain.",
       en: "Distributed ledger platform with zero-knowledge proofs for secure and scalable blockchain transactions.",
@@ -79,7 +79,7 @@ export const projectsData: ProjectData[] = [
       es: "Hace 1 día",
       en: "1 day ago",
     },
-    image: "/projects/vertex-analytics.jpg",
+    image: "",
     description: {
       es: "Motor de analítica en tiempo real con pipeline de procesamiento de datos a escala de terabytes usando ML avanzado.",
       en: "Real-time analytics engine with terabyte-scale data processing pipeline using advanced ML.",
@@ -139,7 +139,7 @@ export const projectsData: ProjectData[] = [
       es: "Hace 5 días",
       en: "5 days ago",
     },
-    image: "/projects/skynet-mesh.jpg",
+    image: "",
     description: {
       es: "Service mesh nativo de Kubernetes para gestión de tráfico, observabilidad y seguridad en arquitecturas de microservicios.",
       en: "Kubernetes-native service mesh for traffic management, observability, and security in microservices architectures.",
@@ -198,7 +198,7 @@ export const projectsData: ProjectData[] = [
       es: "Hace 2 años",
       en: "2 years ago",
     },
-    image: "/projects/cipher-vault.jpg",
+    image: "",
     description: {
       es: "API de encriptación empresarial con gestión de claves HSM y cumplimiento de estándares FIPS 140-2.",
       en: "Enterprise encryption API with HSM key management and FIPS 140-2 compliance.",
@@ -257,7 +257,7 @@ export const projectsData: ProjectData[] = [
       es: "Ahora mismo",
       en: "Just now",
     },
-    image: "/projects/biosynthe.jpg",
+    image: "",
     description: {
       es: "Framework de algoritmos genéticos para simulación y optimización evolutiva con visualización 3D interactiva.",
       en: "Genetic algorithms framework for evolutionary simulation and optimization with interactive 3D visualization.",

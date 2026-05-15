@@ -5,7 +5,6 @@ import {
   HeroSection,
   StatsSection,
   ProjectsSection,
-  TechStackSection,
   BlogSection,
   ContactSection,
   Footer,
@@ -19,7 +18,6 @@ export function HomeTemplate() {
         <HeroSection />
         <StatsSection />
         <ProjectsSection limit={3} />
-        <TechStackSection />
         <BlogSection limit={3} />
         <ContactSection />
       </main>

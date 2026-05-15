@@ -5,6 +5,7 @@ import { Badge } from "@/components/atoms";
 import { type ProjectData } from "@/types";
 import { type Language } from "@/config/translations";
 import { Github, ExternalLink, Eye } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: ProjectData;
@@ -51,11 +52,26 @@ export function ProjectCard({
           }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl">{project.icon}</span>
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.name}
+              width={800}
+              height={500}
+              className="w-full h-full object-cover object-center"
+            />
+          ) : (
+            <span className="text-6xl">{project.icon}</span>
+          )}
+          {/* <span className="text-6xl">{project.icon}</span> */}
         </div>
         {/* Status Badge */}
         <div className="absolute top-3 right-3">
-          <Badge text={statusLabels[project.status]} variant="status" status={project.status} />
+          <Badge
+            text={statusLabels[project.status]}
+            variant="status"
+            status={project.status}
+          />
         </div>
         {/* Version Badge */}
         <div className="absolute top-3 left-3">
@@ -106,7 +122,8 @@ export function ProjectCard({
               {project.name}
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-0.5">
-              {project.architecture[language]} · {project.architectureDetail[language]}
+              {project.architecture[language]} ·{" "}
+              {project.architectureDetail[language]}
             </p>
           </div>
         </div>
@@ -114,13 +131,6 @@ export function ProjectCard({
         <p className="text-sm text-text-secondary mb-4 line-clamp-2">
           {project.description[language]}
         </p>
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.techStack.map((tech) => (
-            <Badge key={tech} text={tech} color={project.color} />
-          ))}
-        </div>
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-3 border-t border-border">

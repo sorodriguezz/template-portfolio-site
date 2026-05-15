@@ -14,7 +14,6 @@ export function Navbar() {
   const navLinks = [
     { href: "#inicio", label: t.nav.inicio },
     { href: "#proyectos", label: t.nav.proyectos },
-    { href: "#tech-stack", label: t.nav.techStack },
     { href: "#blog", label: t.nav.blog },
     { href: "#contacto", label: t.nav.contacto },
   ];
@@ -30,7 +29,6 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.a
-            href="#inicio"
             className="flex items-center gap-2 text-primary font-bold font-mono text-lg"
             whileHover={{ scale: 1.05 }}
           >

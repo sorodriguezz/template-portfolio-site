@@ -3,7 +3,6 @@ export const translations = {
     nav: {
       inicio: "Inicio",
       proyectos: "Proyectos",
-      techStack: "Tech Stack",
       blog: "Blog",
       contacto: "Contacto",
       contratar: "Contrátame",
@@ -42,16 +41,6 @@ export const translations = {
       caracteristicas: "Características Principales",
       desafios: "Desafíos Técnicos",
     },
-    techStack: {
-      subtitle: "MI ARSENAL",
-      title: "Stack Tecnológico",
-      frontend: "Frontend",
-      backend: "Backend",
-      devops: "DevOps",
-      architecture: "Arquitectura",
-      databases: "Bases de Datos",
-      tools: "Herramientas",
-    },
     blog: {
       subtitle: "COMPARTIENDO CONOCIMIENTO",
       title: "Artículos & Blog",
@@ -84,7 +73,6 @@ export const translations = {
     nav: {
       inicio: "Home",
       proyectos: "Projects",
-      techStack: "Tech Stack",
       blog: "Blog",
       contacto: "Contact",
       contratar: "Hire Me",
@@ -122,16 +110,6 @@ export const translations = {
       descripcionCompleta: "Full Description",
       caracteristicas: "Key Features",
       desafios: "Technical Challenges",
-    },
-    techStack: {
-      subtitle: "MY ARSENAL",
-      title: "Technology Stack",
-      frontend: "Frontend",
-      backend: "Backend",
-      devops: "DevOps",
-      architecture: "Architecture",
-      databases: "Databases",
-      tools: "Tools",
     },
     blog: {
       subtitle: "SHARING KNOWLEDGE",
