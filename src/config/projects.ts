@@ -224,5 +224,58 @@ export const projectsData: ProjectData[] = [
     demoUrl: "https://www.npmjs.com/package/fc-devs-mcp",
     icon: "",
     color: "#BA3636"
+  },
+  {
+    id: "nest-config-server",
+    name: "Nest Config Server",
+    version: "v1.3.4",
+    architecture: {
+      "es": "Servidor de configuración para aplicaciones NestJS",
+      "en": "Configuration server for NestJS applications"
+    },
+    architectureDetail: {
+      "es": "Nest Config Server es una aplicación que proporciona un servidor de configuración centralizado para aplicaciones NestJS. Permite a los desarrolladores gestionar y distribuir configuraciones de manera eficiente, facilitando la administración de entornos y la actualización de configuraciones sin necesidad de redeployar las aplicaciones.",
+      "en": "Nest Config Server is an application that provides a centralized configuration server for NestJS applications. It allows developers to manage and distribute configurations efficiently, facilitating environment management and configuration updates without the need to redeploy applications."
+    },
+    techStack: ["NestJS", "TypeScript", "Node.js"],
+    status: "deployed",
+    lastUpdate: "2026-01-18T23:12:00-04:00",
+    image: "/portfolio/projects/nest-config-server.png",
+    description: {
+      "es": "Nest Config Server es una solución de servidor de configuración diseñada para aplicaciones NestJS. La herramienta permite a los desarrolladores centralizar la gestión de configuraciones, lo que facilita la administración de diferentes entornos (desarrollo, prueba, producción) y la actualización de configuraciones sin necesidad de redeployar las aplicaciones. Con Nest Config Server, los equipos de desarrollo pueden mejorar la eficiencia y la flexibilidad en la gestión de configuraciones, lo que resulta en un proceso de desarrollo más ágil y eficiente.",
+      "en": "Nest Config Server is a configuration server solution designed for NestJS applications. The tool allows developers to centralize configuration management, facilitating the administration of different environments (development, testing, production) and updating configurations without the need to redeploy applications. With Nest Config Server, development teams can improve efficiency and flexibility in configuration management, resulting in a more agile and efficient development process."
+    },
+    fullDescription: {
+      "es": "Nest Config Server es una aplicación innovadora que proporciona un servidor de configuración centralizado para aplicaciones NestJS. La herramienta permite a los desarrolladores gestionar y distribuir configuraciones de manera eficiente, lo que facilita la administración de entornos y la actualización de configuraciones sin necesidad de redeployar las aplicaciones. Con Nest Config Server, los equipos de desarrollo pueden mejorar la eficiencia y la flexibilidad en la gestión de configuraciones, lo que resulta en un proceso de desarrollo más ágil y eficiente.",
+      "en": "Nest Config Server is an innovative application that provides a centralized configuration server for NestJS applications. The tool allows developers to manage and distribute configurations efficiently, facilitating environment management and configuration updates without the need to redeploy applications. With Nest Config Server, development teams can improve efficiency and flexibility in configuration management, resulting in a more agile and efficient development process."
+    },
+    features: {
+      "es": [
+        "Centralización de la gestión de configuraciones para aplicaciones NestJS",
+        "Facilita la administración de diferentes entornos (desarrollo, prueba, producción)",
+        "Permite la actualización de configuraciones sin necesidad de redeployar las aplicaciones"
+      ],
+      "en": [
+        "Centralization of configuration management for NestJS applications",
+        "Facilitates the administration of different environments (development, testing, production)",
+        "Allows configuration updates without the need to redeploy applications"
+      ],
+    },
+    challenges: {
+      "es": [
+        "Optimización del rendimiento para manejar múltiples solicitudes de configuración simultáneas",
+        "Garantizar la seguridad y privacidad de las configuraciones almacenadas en el servidor",
+        "Implementación de una interfaz de usuario intuitiva para la gestión de configuraciones"
+      ],
+      "en": [
+        "Performance optimization to handle multiple simultaneous configuration requests",
+        "Ensuring security and privacy of configurations stored on the server",
+        "Implementation of an intuitive user interface for configuration management"
+      ],
+    },
+    githubUrl: "https://github.com/sorodriguezz/nest-cloud-config-server",
+    demoUrl: "https://www.npmjs.com/package/@sorodriguez/nest-cloud-config-server",
+    icon: "",
+    color: "#C4E660"
   }
 ];
