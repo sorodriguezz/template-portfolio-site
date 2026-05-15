@@ -16,7 +16,7 @@ export const projectsData: ProjectData[] = [
     techStack: ["NestJS", "TypeScript", "NPM"],
     status: "deployed",
     lastUpdate: "2026-05-14T21:27:00-04:00",
-    image: "/projects/achs-cli.png",
+    image: "/template-portfolio-site/projects/achs-cli.png",
     description: {
       es: "Librería de línea de comandos para generar archivos de NESTJS con una estructura predefinida, facilitando el desarrollo rápido de aplicaciones backend.",
       en: "Command-line interface library for generating NESTJS files with a predefined structure, facilitating rapid backend application development.",
