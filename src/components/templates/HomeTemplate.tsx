@@ -10,10 +10,7 @@ import {
 import { type BlogPost } from "@/types";
 
 interface HomeTemplateProps {
-  initialPosts: {
-    es: BlogPost[];
-    en: BlogPost[];
-  };
+  initialPosts: BlogPost[];
 }
 
 export function HomeTemplate({ initialPosts }: HomeTemplateProps) {

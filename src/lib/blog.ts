@@ -9,19 +9,17 @@ import { type Language } from "@/config/translations";
 
 const blogDirectory = path.join(process.cwd(), "content/blog");
 
-export async function getSortedPostsData(lang: Language, includeContent: boolean = false): Promise<BlogPost[]> {
-  const langDir = path.join(blogDirectory, lang);
-  
-  if (!fs.existsSync(langDir)) {
+export async function getSortedPostsData(includeContent: boolean = false): Promise<BlogPost[]> {
+  if (!fs.existsSync(blogDirectory)) {
     return [];
   }
 
-  const fileNames = fs.readdirSync(langDir);
+  const fileNames = fs.readdirSync(blogDirectory);
   const allPostsData = await Promise.all(fileNames
     .filter((fileName) => fileName.endsWith(".md"))
     .map(async (fileName) => {
       const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(langDir, fileName);
+      const fullPath = path.join(blogDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const { data, content } = matter(fileContents);
 
@@ -42,15 +40,15 @@ export async function getSortedPostsData(lang: Language, includeContent: boolean
         readTime: calculateReadTime(content),
         image: data.image || null,
         content: contentHtml,
-        language: lang,
+        language: "es", // Default language for the unique MDs
       } as BlogPost;
     }));
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getPostData(slug: string, lang: Language): Promise<BlogPost | null> {
-  const fullPath = path.join(blogDirectory, lang, `${slug}.md`);
+export async function getPostData(slug: string): Promise<BlogPost | null> {
+  const fullPath = path.join(blogDirectory, `${slug}.md`);
   
   if (!fs.existsSync(fullPath)) {
     return null;
@@ -73,6 +71,6 @@ export async function getPostData(slug: string, lang: Language): Promise<BlogPos
     readTime: calculateReadTime(content),
     image: data.image || null,
     content: contentHtml,
-    language: lang,
+    language: "es",
   } as BlogPost;
 }

@@ -2,19 +2,13 @@ import { Navbar, BlogSection, Footer } from "@/components/organisms";
 import { getSortedPostsData } from "@/lib/blog";
 
 export default async function BlogsPage() {
-  const postsEs = await getSortedPostsData("es", true);
-  const postsEn = await getSortedPostsData("en", true);
+  const posts = await getSortedPostsData(true);
   
-  const allPosts = {
-    es: postsEs,
-    en: postsEn,
-  };
-
   return (
     <>
       <Navbar />
       <main className="pt-20">
-        <BlogSection showViewAll={false} initialPosts={allPosts} />
+        <BlogSection showViewAll={false} initialPosts={posts} />
       </main>
       <Footer />
     </>

@@ -12,17 +12,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 interface BlogSectionProps {
   limit?: number;
   showViewAll?: boolean;
-  initialPosts: {
-    es: BlogPost[];
-    en: BlogPost[];
-  };
+  initialPosts: BlogPost[];
 }
 
 export function BlogSection({ limit, showViewAll = true, initialPosts }: BlogSectionProps) {
   const { t, language } = useLanguage();
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
-  const posts = initialPosts[language] || [];
+  const posts = initialPosts;
 
   const handleReadMore = (slug: string) => {
     const post = posts.find((p) => p.slug === slug);
